@@ -11,8 +11,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.robinson.luis.sevenminutesworkout.R.id.textView;
-
 /**
  * Created by Luis on 21/02/2017.
  */
@@ -48,7 +46,7 @@ public class TreinosAdapter extends ArrayAdapter {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.celula_treino,parent,false);
             handler = new DataHandler();
-            handler.icone = (ImageView)row.findViewById(R.id.imageView);
+            handler.icone = (ImageView)row.findViewById(R.id.imgTreinos);
             handler.treino = (TextView)row.findViewById(R.id.txtIdTreino);
             handler.inicial = (TextView)row.findViewById(R.id.txtNomeTreino);
             row.setTag(handler);
@@ -60,7 +58,9 @@ public class TreinosAdapter extends ArrayAdapter {
 
         TreinosDataProvider dataProvider;
         dataProvider = (TreinosDataProvider) this.getItem(position);
-        //handler.icone.setImageResource(dataProvider);
+        handler.icone.setImageResource(dataProvider.getListaIcones());
+        handler.treino.setText(dataProvider.getListaTreinos());
+        handler.inicial.setText(dataProvider.getListaIniciais());
         return row;
     }
 
