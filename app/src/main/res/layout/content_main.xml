@@ -23,14 +23,13 @@
         tools:alpha="0" />
 
     <TextView
-        android:text="TextView"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgTreinos"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:id="@+id/textView"
-        tools:text="Selecione seu Treino"
+        android:text="Selecione seu treino"
         android:textSize="24sp" />
 
     <ListView

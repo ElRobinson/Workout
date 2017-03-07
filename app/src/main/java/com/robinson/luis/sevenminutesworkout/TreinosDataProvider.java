@@ -4,16 +4,16 @@ package com.robinson.luis.sevenminutesworkout;
  * Created by Luis on 21/02/2017.
  */
 
-public class TreinosDataProvider {
+public class    TreinosDataProvider {
     private int listaIcones;
     private String listaTreinos;
     private String listaIniciais;
 
 
     public TreinosDataProvider(int listaIcones, String listaTreinos, String listaIniciais) {
-        this.listaIcones = listaIcones;
-        this.listaTreinos = listaTreinos;
-        this.listaIniciais = listaIniciais;
+        this.setListaIcones(listaIcones);
+        this.setListaTreinos(listaTreinos);
+        this.setListaIniciais(listaIniciais);
     }
 
     public int getListaIcones() {

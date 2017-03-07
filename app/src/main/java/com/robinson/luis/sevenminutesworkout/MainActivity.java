@@ -3,6 +3,7 @@ package com.robinson.luis.sevenminutesworkout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -26,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         TreinosAdapter adapter;
 
-        int[] lista_e_icones = {    R.drawable.estrelaa,R.drawable.estrelaa,R.drawable.estrelaa,
-                R.drawable.estrelaa,R.drawable.estrelaa,R.drawable.estrelaa,
-                R.drawable.estrelaa,R.drawable.estrelaa,R.drawable.estrelaa};
+        int[] lista_e_icones = {    R.drawable.estrela,R.drawable.estrela,R.drawable.estrela,
+                R.drawable.estrela,R.drawable.estrela,R.drawable.estrela,R.drawable.estrela,
+                R.drawable.estrela,R.drawable.estrela,R.drawable.estrela};
 
         listView = (ListView) findViewById(R.id.listaTreinos);
         imagemTreinos = (ImageView)findViewById(R.id.imgTreinos);
@@ -47,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
             TreinosDataProvider dataProvider = new TreinosDataProvider(lista_e_icones[i],titles,inicial_treinos[i]);
             adapter.add(dataProvider);
             i++;
+
         }
+
+        Log.d("LOOOOOG", "onCreate: aqui porra");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 loadTelaExercicio();
             }
         });
+
     }
 
     public void loadTelaExercicio(){
