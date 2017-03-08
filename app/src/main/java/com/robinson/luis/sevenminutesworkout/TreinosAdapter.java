@@ -47,8 +47,8 @@ public class TreinosAdapter extends ArrayAdapter {
             row = inflater.inflate(R.layout.celula_treino,parent,false);
             handler = new DataHandler();
             handler.icone = (ImageView)row.findViewById(R.id.imageView2);
-            handler.treino = (TextView)row.findViewById(R.id.txtIdTreino);
-            handler.inicial = (TextView)row.findViewById(R.id.txtNomeTreino);
+            handler.treino = (TextView)row.findViewById(R.id.txtNomeTreino);
+            handler.inicial = (TextView)row.findViewById(R.id.txtIdTreino);
             row.setTag(handler);
 
 
