@@ -8,4 +8,19 @@
     tools:context="com.robinson.luis.sevenminutesworkout.TelaVideos"
     tools:showIn="@layout/activity_tela_videos">
 
+    <TextView
+        android:id="@+id/txtNomeExercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="368dp"
+        android:layout_height="240dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="46dp" />
 </android.support.constraint.ConstraintLayout>

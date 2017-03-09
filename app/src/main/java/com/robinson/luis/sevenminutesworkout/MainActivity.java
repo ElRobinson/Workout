@@ -2,6 +2,7 @@ package com.robinson.luis.sevenminutesworkout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     int treinoSelecionado;
     ImageView imagemTreinos;
+
+    TextToSpeech ttsobject;
+
+
 
 
     @Override
@@ -51,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Log.d("LOOOOOG", "onCreate: aqui porra");
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
@@ -62,6 +65,18 @@ public class MainActivity extends AppCompatActivity {
                 loadTelaExercicio();
             }
         });
+
+        ttsobject = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener(){
+            @Override
+            public void onInit(int status) {
+                if (status==TextToSpeech.SUCCESS){
+                    ttsobject.speak("Select your Training!", TextToSpeech.QUEUE_FLUSH,null);
+                } else {
+                    Toast.makeText(getApplicationContext(),"Não suporta VoiceToSpeech",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
     }
 
