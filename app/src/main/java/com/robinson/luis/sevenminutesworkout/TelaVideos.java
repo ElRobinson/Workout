@@ -28,18 +28,28 @@ public class TelaVideos extends AppCompatActivity {
 
         webView.getSettings().setJavaScriptEnabled(true);
 
-        webView.loadUrl("www.youtube.com/embed/" + "nMSmdff4HGM" + "?autoplay=1&vq=small");
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("http://www.youtube.com/embed/" + "3O3qQUkGluE" + "?autoplay=1&vq=small");
+
         webView.setWebChromeClient(new WebChromeClient());
 
         String nomeVideo = getIntent().getExtras().getString("nomeVideo");
         txtTitulo.setText(nomeVideo);
     }
 
+    private class MyBrowser extends WebViewClient{
+        public  boolean overrideUrlLoading (WebView view, String url){
+            view.loadUrl(url);
+            return true;
+        }
+    }
+    /*
     private class MyBroser extends WebViewClient{
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             return super.shouldOverrideUrlLoading(view, request);
         }
     }
+    */
 
 }

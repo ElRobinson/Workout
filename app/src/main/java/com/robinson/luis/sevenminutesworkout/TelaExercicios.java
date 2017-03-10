@@ -26,7 +26,7 @@ public class TelaExercicios extends AppCompatActivity {
         switch (treinoSelecionado){
             case 0: listaTreino = new String[] {"Aquecimento","Corrida","Barra","Flexao","Abdominal","Agachamento","Minhoca","Jacaré","Urso","Caranguejo","Barra"};
                 break;
-            case 1: listaTreino = new String[] {"Corrida","Barra","Flexao","Corrida","Barra","Flexao","Corrida","Barra","Flexao","Corrida","Barra","Flexao","Corrida","Barra"};
+            case 1: listaTreino = new String[] {"Corrida","Barra","Flexao","Corrida","Barra","Flexao","Corrida","Barra","Flexao","Corrida","Barra","Flexao","Corrida","Barra","Flexão"};
                 break;
             default: listaTreino = new String[] {"Minhoca","Jacará","Urso","Caranguejo","Barra","Minhoca","Jacará","Urso","Caranguejo","Barra"};
 

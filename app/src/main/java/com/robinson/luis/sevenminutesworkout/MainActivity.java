@@ -24,6 +24,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ttsobject = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener(){
+            @Override
+            public void onInit(int status) {
+                if (status==TextToSpeech.SUCCESS){
+                    ttsobject.speak("Select your Training!", TextToSpeech.QUEUE_FLUSH,null);
+                } else {
+                    Toast.makeText(getApplicationContext(),"Não suporta VoiceToSpeech",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         final ListView listView;
 
@@ -56,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
@@ -66,16 +78,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ttsobject = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener(){
-            @Override
-            public void onInit(int status) {
-                if (status==TextToSpeech.SUCCESS){
-                    ttsobject.speak("Select your Training!", TextToSpeech.QUEUE_FLUSH,null);
-                } else {
-                    Toast.makeText(getApplicationContext(),"Não suporta VoiceToSpeech",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+
 
 
     }
@@ -84,5 +87,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),TelaExercicios.class);
         intent.putExtra("numeroTreino", treinoSelecionado);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(ttsobject != null){
+            ttsobject.stop();
+            ttsobject.shutdown();
+        }
     }
 }
